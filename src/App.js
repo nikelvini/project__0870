@@ -1,6 +1,41 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, NavLink, Route} from"react-router-dom";
+
+const Menu = ()=>{
+	return(
+	<nav className="header__menu mobile-menu">
+		<ul>
+			<li className="nav-link"><NavLink to="index">Главная</NavLink></li>
+			<li className="nav-link"><NavLink to="shop">Каталог</NavLink></li>
+			<li className="nav-link"><NavLink to="recipe">Рецепты</NavLink></li>
+			<li className="nav-link"><NavLink to="contact">Контакты</NavLink></li>
+		</ul>
+	</nav>
+	
+	);
+}
+const Home = ()=>{
+	return(
+	<h1>Главная</h1>
+	);
+}
+const Shop = ()=>{
+	return(
+	<h1>Каталог</h1>
+	);
+}
+const Recipe = ()=>{
+	return(
+	<h1>Рецепты</h1>
+	);
+}
+const Сontacts = ()=>{
+	return(
+	<h1>Контакты</h1>
+	);
+}
 
 function App() {
   return (
@@ -28,7 +63,7 @@ function App() {
 			<div id="mobile-menu-wrap"></div>
 			<div className="offcanvas__option">
 				<ul>
-					<li><a href="#">Войти</a> <span class="arrow_carrot-down"></span></li>
+					<li><a href="#">Войти</a> <span className="arrow_carrot-down"></span></li>
 				</ul>
 			</div>
 		</div>
@@ -66,41 +101,32 @@ function App() {
 			</div>
 			<div className="container">
 				<div className="row">
-					<div className="col-lg-12">
-						<nav className="header__menu mobile-menu">
-							<ul>
-								<li className="active"><a href="./index.html">Home</a></li>
-								<li><a href="./about.html">About</a></li>
-								<li><a href="./shop.html">Shop</a></li>
-								<li><a href="#">Pages</a>
-									<ul className="dropdown">
-										<li><a href="./shop-details.html">Shop Details</a></li>
-										<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-										<li><a href="./checkout.html">Check Out</a></li>
-										<li><a href="./wisslist.html">Wisslist</a></li>
-										<li><a href="./Class.html">Class</a></li>
-										<li><a href="./blog-details.html">Blog Details</a></li>
-									</ul>
-								</li>
-								<li><a href="./blog.html">Blog</a></li>
-								<li><a href="./contact.html">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
+					<BrowserRouter>
+						<div className="col-lg-12">
+							<Menu/>
+						</div>
+						<div>
+							<Route path ={"/index"} component={Home}/>
+							<Route path ={"/shop"} component={Shop}/>
+							<Route path ={"/recipe"} component={Recipe}/>
+							<Route path ={"/contact"} component={Сontacts}/>
+						</div>
+					</BrowserRouter>
 				</div>
 			</div>
 		</header>
 		
 		
 		<section className="hero">
-			<div className="hero__slider owl-carousel">
-				<div className="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+			<div className="hero__slider owl-carousel owl-theme">
+				<div className="hero__item set-bg" >
 					<div className="container">
 						<div className="row d-flex justify-content-center">
 							<div className="col-lg-8">
 								<div className="hero__text">
+								<img src ="img/hero/hero-1.jpg"></img>
 									<h2>Making your life sweeter one bite at a time!</h2>
-									<a href="#" class="primary-btn">Our cakes</a>
+									<a href="#" class="primary-btn">Наши пирожки</a>
 								</div>
 							</div>
 						</div>
@@ -152,7 +178,7 @@ function App() {
 								</div>
 							</div>
 							<div className="about__bar__item">
-								<p>Cake Recipes</p>
+								<p>Рецепты</p>
 								<div id="bar3" className="barfiller">
 									<div className="tipWrap"><span className="tip"></span></div>
 									<span className="fill" data-percentage="90"></span>
@@ -172,31 +198,31 @@ function App() {
 						<div className="categories__item">
 							<div className="categories__item__icon">
 								<span className="flaticon-029-cupcake-3"></span>
-								<h5>Cupcake</h5>
+								<h5>Капкейки</h5>
 							</div>
 						</div>
 						<div className="categories__item">
 							<div className="categories__item__icon">
 								<span className="flaticon-034-chocolate-roll"></span>
-								<h5>Butter</h5>
+								<h5>Шоколад</h5>
 							</div>
 						</div>
 						<div className="categories__item">
 							<div className="categories__item__icon">
 								<span className="flaticon-005-pancake"></span>
-								<h5>Red Velvet</h5>
+								<h5>Красный бархат</h5>
 							</div>
 						</div>
 						<div className="categories__item">
 							<div className="categories__item__icon">
 								<span className="flaticon-030-cupcake-2"></span>
-								<h5>Biscuit</h5>
+								<h5>Бисквиты</h5>
 							</div>
 						</div>
 						<div className="categories__item">
 							<div className="categories__item__icon">
 								<span className="flaticon-006-macarons"></span>
-								<h5>Donut</h5>
+								<h5>Пончики</h5>
 							</div>
 						</div>
 						<div className="categories__item">
