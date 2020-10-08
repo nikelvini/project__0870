@@ -3,6 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, NavLink, Route} from"react-router-dom";
 
+import Home from "./components/Home";
+import Shop from "./components/Shop"; 
+import Сontacts from "./components/Сontacts";
+import Recipe from "./components/Recipe";
+
 const Menu = ()=>{
 	return(
 	<nav className="header__menu mobile-menu">
@@ -16,26 +21,7 @@ const Menu = ()=>{
 	
 	);
 }
-const Home = ()=>{
-	return(
-	<h1>Главная</h1>
-	);
-}
-const Shop = ()=>{
-	return(
-	<h1>Каталог</h1>
-	);
-}
-const Recipe = ()=>{
-	return(
-	<h1>Рецепты</h1>
-	);
-}
-const Сontacts = ()=>{
-	return(
-	<h1>Контакты</h1>
-	);
-}
+
 
 function App() {
   return (
@@ -54,7 +40,7 @@ function App() {
 				</div>
 				<div className="offcanvas__cart__item">
 					<a href="#"><img src="img/icon/cart.png" alt=""></img> <span>0</span></a>
-					<div className="cart__price">Cart: <span>$0.00</span></div>
+					<div className="cart__price">Корзина: <span>$0.00</span></div>
 				</div>
 			</div>
 			<div className="offcanvas__logo">
@@ -90,7 +76,7 @@ function App() {
 									</div>
 									<div className="header__top__right__cart">
 										<a href="#"><img src="img/icon/cart.png" alt=""></img> <span>0</span></a>
-										<div className="cart__price">Cart: <span>$0.00</span></div>
+										<div className="cart__price">Корзина: <span>$0.00</span></div>
 									</div>
 								</div>
 							</div>
@@ -103,7 +89,7 @@ function App() {
 				<div className="row">
 					<BrowserRouter>
 						<div className="col-lg-12">
-							<Menu/>
+						<Menu/>
 						</div>
 						<div>
 							<Route path ={"/index"} component={Home}/>
